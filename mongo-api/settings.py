@@ -29,7 +29,7 @@ DOMAIN = {
                     'type': 'string'
                 }
             },
-            'entities':{
+            'entities': {
               'hashtags': {
                   'type': 'string'
               }

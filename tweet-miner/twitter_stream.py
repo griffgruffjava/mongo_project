@@ -1,20 +1,14 @@
-__author__ = 'Ciaran Griffin t00175569'
-"""
-Author: Ruben
-Cuevas
-Menendez
-Download and store
-tweets in MongoDB.
-"""
+__author__ = 'Ruben Cuevas Menendez from https://coolprof.wordpress.com/tag/mongodb/'
+# modified for my needs
 
 import json
-
 import tweepy
 from pymongo import MongoClient
 
 
 class StreamListener(tweepy.StreamListener):
-    # tweepy.StreamListener is a class provided by tweepy used to access the Twitter Streaming API. It allows us to retrieve tweets in real time.
+    # tweepy.StreamListener is a class provided by tweepy used to access the Twitter Streaming API.
+    # It allows us to retrieve tweets in real time.
 
     def on_connect(self):
         print("You're connected to the streaming server.")
@@ -26,36 +20,27 @@ class StreamListener(tweepy.StreamListener):
     def on_data(self, data):
         client = MongoClient('localhost', 27017)
 
-        # Use cooldb database
+        # Use eve database created for Eve API
         db = client.eve
 
         # Decode JSON
         datajson = json.loads(data)
-        # text = datajson["text"]
-        #
-        # # print text
-        # word = "trump"
-        # if word in text.lower():
-        #     datajson ['trump_mention'] = 1
-        # word = "clinton"
-        # if word in text.lower:
-        #     datajson ['clinton_mention'] = 1
 
-        # We only want to store tweets in English
+        # Only storing English tweets
         if "lang" in datajson and datajson["lang"] == "en":
             # Store tweet info into the cooltweets collection.
             db.cooltweets.insert(datajson)
 
-
 # This is a manually created filed where I stored my OAuth credentials for Twitter.
 # Each line is a key-value pair of the form: KEY_NAME:KEY
-# CREDENTIALS_PATH = 'C:/Users/Finbar/Desktop/twitter_keys/keys.txt'
-# CREDENTIALS_PATH = 'C:/Users/t00175569/Desktop/twitter_keys/keys.txt'
-CREDENTIALS_PATH = '/Users/C_Train/Desktop/twitter_keys/keys.txt'
-# Path to the list of Spanish stop words.
-# STOPWORDS_ES_PATH = 'C:/Users/Finbar/Desktop/twitter_keys/keywords.txt'
-# STOPWORDS_ES_PATH = 'C:/Users/t00175569/Desktop/twitter_keys/keywords.txt'
-STOPWORDS_ES_PATH = '/Users/C_Train/Desktop/twitter_keys/keywords.txt'
+CREDENTIALS_PATH = 'C:/Users/Finbar/Desktop/twitter_keys/keys.txt' # Laptop
+# CREDENTIALS_PATH = 'C:/Users/t00175569/Desktop/twitter_keys/keys.txt' # College
+# CREDENTIALS_PATH = '/Users/C_Train/Desktop/twitter_keys/keys.txt' # MAC
+
+# Path to the list of keywords to search for (not case-sensitive).
+STOPWORDS_ES_PATH = 'C:/Users/Finbar/Desktop/twitter_keys/keywords.txt' # Laptop
+# STOPWORDS_ES_PATH = 'C:/Users/t00175569/Desktop/twitter_keys/keywords.txt' # College
+# STOPWORDS_ES_PATH = '/Users/C_Train/Desktop/twitter_keys/keywords.txt' # MAC
 
 CONSUMER_KEY = ""
 CONSUMER_SECRET = ""
@@ -63,7 +48,6 @@ ACCESS_TOKEN = ""
 ACCESS_TOKEN_SECRET = ""
 
 # Load credentials
-
 with open(CREDENTIALS_PATH) as f:
     for line in f:
         line = line.rstrip('\r\n').split(":")
