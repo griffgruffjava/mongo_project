@@ -18,6 +18,7 @@ class StreamListener(tweepy.StreamListener):
         return False
 
     def on_data(self, data):
+        # connect to Mongo Server
         client = MongoClient('localhost', 27017)
 
         # Use eve database created for Eve API
@@ -28,8 +29,9 @@ class StreamListener(tweepy.StreamListener):
 
         # Only storing English tweets
         if "lang" in datajson and datajson["lang"] == "en":
-            # Store tweet info into the cooltweets collection.
-            db.cooltweets.insert(datajson)
+            # Store tweet info into the tweets collection.
+            # If no collection exists, it will be created.
+            db.tweets.insert(datajson)
 
 # This is a manually created filed where I stored my OAuth credentials for Twitter.
 # Each line is a key-value pair of the form: KEY_NAME:KEY

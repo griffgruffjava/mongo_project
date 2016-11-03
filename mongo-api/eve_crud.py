@@ -107,6 +107,6 @@ def delete_tweet(mongo_id):
 # print post_tweet(data)
 
 
-# delete_collection()
+delete_collection()
 
-print delete_tweet("581b2f2beec9cc11803a6d59")
+# print delete_tweet("581b2f2beec9cc11803a6d59")

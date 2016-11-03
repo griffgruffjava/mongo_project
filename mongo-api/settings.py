@@ -45,6 +45,8 @@ DOMAIN = {
     }
 }
 
+# collection methods allowed
 RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
 
+# document methods allowed
 ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
