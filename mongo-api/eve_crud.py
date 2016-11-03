@@ -90,7 +90,7 @@ def delete_tweet(mongo_id):
 
 # print get_tweet_by_field("user.wrong_field", "10_After")
 
-# print get_all_by_pagination(1000, 3)
+print get_all_by_pagination(1000, 3)
 
 # print get_all_by_pagination(35, 3)
 
@@ -107,6 +107,6 @@ def delete_tweet(mongo_id):
 # print post_tweet(data)
 
 
-delete_collection()
+# delete_collection()
 
 # print delete_tweet("581b2f2beec9cc11803a6d59")

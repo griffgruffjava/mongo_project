@@ -36,13 +36,13 @@ class StreamListener(tweepy.StreamListener):
 # This is a manually created filed where I stored my OAuth credentials for Twitter.
 # Each line is a key-value pair of the form: KEY_NAME:KEY
 # CREDENTIALS_PATH = 'C:/Users/Finbar/Desktop/twitter_keys/keys.txt' # Laptop
-CREDENTIALS_PATH = 'C:/Users/t00175569/Desktop/twitter_keys/keys.txt' # College
-# CREDENTIALS_PATH = '/Users/C_Train/Desktop/twitter_keys/keys.txt' # MAC
+# CREDENTIALS_PATH = 'C:/Users/t00175569/Desktop/twitter_keys/keys.txt' # College
+CREDENTIALS_PATH = '/Users/C_Train/Desktop/twitter_keys/keys.txt' # MAC
 
 # Path to the list of keywords to search for (not case-sensitive).
 # STOPWORDS_ES_PATH = 'C:/Users/Finbar/Desktop/twitter_keys/keywords.txt' # Laptop
-STOPWORDS_ES_PATH = 'C:/Users/t00175569/Desktop/twitter_keys/keywords.txt' # College
-# STOPWORDS_ES_PATH = '/Users/C_Train/Desktop/twitter_keys/keywords.txt' # MAC
+# STOPWORDS_ES_PATH = 'C:/Users/t00175569/Desktop/twitter_keys/keywords.txt' # College
+STOPWORDS_ES_PATH = '/Users/C_Train/Desktop/twitter_keys/keywords.txt' # MAC
 
 CONSUMER_KEY = ""
 CONSUMER_SECRET = ""

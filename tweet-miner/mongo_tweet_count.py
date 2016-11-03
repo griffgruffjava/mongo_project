@@ -6,7 +6,7 @@ client = MongoClient()
 
 db = client.eve
 
-collection = db.cooltweets
+collection = db.tweets
 
 tweets_iterator = collection.find()
 
