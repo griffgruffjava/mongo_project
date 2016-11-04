@@ -37,13 +37,17 @@ def get_all():
     return tweets.find()
 
 
-# Update methods
+# Update
 
 
 def update_tweet(id, key, value):
     return tweets.find_one_and_update({'_id': ObjectId(id)}, {'$set': {key: value}}, return_document=ReturnDocument.AFTER)
 
+# Delete
 
+
+def delete_tweet(mongo_id):
+    return tweets.find_one_and_delete({'_id': ObjectId(mongo_id)})
 
 data1 = {'name': 'Mongo_God', 'text': 'On the 8th day I made a tweet'}
 data2 = [data1, {'name': 'Mongo_God', 'text': 'more tweeting here'}]
@@ -58,5 +62,6 @@ data2 = [data1, {'name': 'Mongo_God', 'text': 'more tweeting here'}]
 
 # print get_all()
 
+# print update_tweet("581bc6610bdb82869e9ed989", 'text', 'i am so awesome!')
 
-print update_tweet("581bc6610bdb82869e9ed989", 'text', 'i am so awesome!')
+print delete_tweet("581bc6610bdb82869e9ed989")
