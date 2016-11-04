@@ -15,6 +15,7 @@ def create_tweet(tweet):
     return tweet
 
 
+
 def multi_create_tweet(multi_tweet):
     created_tweets = tweets.insert_many(multi_tweet)
     return created_tweets
@@ -25,7 +26,6 @@ def multi_create_tweet(multi_tweet):
 def get_tweet_by_id(id):
     print tweets.count()
     return tweets.find_one({'_id': ObjectId(id)})
-
 
 
 def get_first_tweet(key, value):
@@ -64,4 +64,4 @@ data2 = [data1, {'name': 'Mongo_God', 'text': 'more tweeting here'}]
 
 # print update_tweet("581bc6610bdb82869e9ed989", 'text', 'i am so awesome!')
 
-print delete_tweet("581bc6610bdb82869e9ed989")
+# print delete_tweet("581bc6610bdb82869e9ed989")

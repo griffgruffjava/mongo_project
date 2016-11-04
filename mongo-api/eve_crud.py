@@ -2,7 +2,7 @@ import requests
 
 import json_utils
 
-base = 'http://127.0.0.1:5000/cooltweets'
+base = 'http://127.0.0.1:5000/tweets'
 
 
 # CREATE CALLS - HTTP POST
@@ -80,7 +80,7 @@ def delete_tweet(mongo_id):
     return req
 
 
-# print get_by_mongo_id("581b2f2beec9cc11803a6d59")
+print get_by_mongo_id("581bc6610bdb82869e9ed989")
 
 # print get_by_tweet_id(794156147741786112)
 
@@ -90,12 +90,12 @@ def delete_tweet(mongo_id):
 
 # print get_tweet_by_field("user.wrong_field", "10_After")
 
-print get_all_by_pagination(1000, 3)
+# print get_all_by_pagination(1000, 3)
 
 # print get_all_by_pagination(35, 3)
 
 # data = {'text': 'IS THIS STILL THING ON??'}
-# put_tweet("581b2f2beec9cc11803a6d59", data)
+# put_tweet("581bc6610bdb82869e9ed989", data)
 
 # patch_tweet_by_field("581b2f2beec9cc11803a6d59", "text", "same_value again!!")
 # print get_by_mongo_id("581b2f2beec9cc11803a6d59")
